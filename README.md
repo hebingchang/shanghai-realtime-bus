@@ -1,6 +1,8 @@
 # Shanghai Realtime Bus
 
-「上海公交」APP 的 Python 实现
+「上海公交」APP 的 Python 实现。
+
+好用请 Star~
 
 ## Installation
 
