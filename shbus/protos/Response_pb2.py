@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='protoc.Response',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0eResponse.proto\x12\x0fprotoc.Response\x1a\x19google/protobuf/any.proto\"/\n\x08Response\x12#\n\x05items\x18\x01 \x03(\x0b\x32\x14.google.protobuf.Any\"#\n\x04Time\x12\r\n\x05\x65\x61rly\x18\x01 \x01(\t\x12\x0c\n\x04late\x18\x02 \x01(\t\";\n\x05Route\x12#\n\x04time\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Time\x12\r\n\x05names\x18\x02 \x03(\t\"<\n\x04Info\x12\x0c\n\x04name\x18\x01 \x01(\t\x12&\n\x06routes\x18\x02 \x03(\x0b\x32\x16.protoc.Response.Route\"F\n\x04Item\x12\x0f\n\x07vehicle\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x04 \x01(\r\x12\r\n\x05stops\x18\x02 \x01(\r\x12\x10\n\x08\x64istance\x18\x03 \x01(\r\"T\n\x07Monitor\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12$\n\x05items\x18\x02 \x03(\x0b\x32\x15.protoc.Response.Item\"U\n\x08\x44ispatch\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12$\n\x05items\x18\x02 \x03(\x0b\x32\x15.protoc.Response.Item\"=\n\x05\x45rror\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12\x0f\n\x07message\x18\x02 \x01(\tb\x06proto3')
+  serialized_pb=_b('\n\x0eResponse.proto\x12\x0fprotoc.Response\x1a\x19google/protobuf/any.proto\"/\n\x08Response\x12#\n\x05items\x18\x01 \x03(\x0b\x32\x14.google.protobuf.Any\"#\n\x04Time\x12\r\n\x05\x65\x61rly\x18\x01 \x01(\t\x12\x0c\n\x04late\x18\x02 \x01(\t\";\n\x05Route\x12#\n\x04time\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Time\x12\r\n\x05names\x18\x02 \x03(\t\"<\n\x04Info\x12\x0c\n\x04name\x18\x01 \x01(\t\x12&\n\x06routes\x18\x02 \x03(\x0b\x32\x16.protoc.Response.Route\"M\n\x0bMonitorItem\x12\x0f\n\x07vehicle\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x04 \x01(\r\x12\r\n\x05stops\x18\x02 \x01(\r\x12\x10\n\x08\x64istance\x18\x03 \x01(\r\"-\n\x0c\x44ispatchItem\x12\x0f\n\x07vehicle\x18\x01 \x01(\t\x12\x0c\n\x04time\x18\x02 \x01(\t\"[\n\x07Monitor\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12+\n\x05items\x18\x02 \x03(\x0b\x32\x1c.protoc.Response.MonitorItem\"]\n\x08\x44ispatch\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12,\n\x05items\x18\x02 \x03(\x0b\x32\x1d.protoc.Response.DispatchItem\"=\n\x05\x45rror\x12#\n\x04info\x18\x01 \x01(\x0b\x32\x15.protoc.Response.Info\x12\x0f\n\x07message\x18\x02 \x01(\tb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 
@@ -172,36 +172,36 @@ _INFO = _descriptor.Descriptor(
 )
 
 
-_ITEM = _descriptor.Descriptor(
-  name='Item',
-  full_name='protoc.Response.Item',
+_MONITORITEM = _descriptor.Descriptor(
+  name='MonitorItem',
+  full_name='protoc.Response.MonitorItem',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='vehicle', full_name='protoc.Response.Item.vehicle', index=0,
+      name='vehicle', full_name='protoc.Response.MonitorItem.vehicle', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='time', full_name='protoc.Response.Item.time', index=1,
+      name='time', full_name='protoc.Response.MonitorItem.time', index=1,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='stops', full_name='protoc.Response.Item.stops', index=2,
+      name='stops', full_name='protoc.Response.MonitorItem.stops', index=2,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='distance', full_name='protoc.Response.Item.distance', index=3,
+      name='distance', full_name='protoc.Response.MonitorItem.distance', index=3,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -220,7 +220,45 @@ _ITEM = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=271,
-  serialized_end=341,
+  serialized_end=348,
+)
+
+
+_DISPATCHITEM = _descriptor.Descriptor(
+  name='DispatchItem',
+  full_name='protoc.Response.DispatchItem',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vehicle', full_name='protoc.Response.DispatchItem.vehicle', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='time', full_name='protoc.Response.DispatchItem.time', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=350,
+  serialized_end=395,
 )
 
 
@@ -257,8 +295,8 @@ _MONITOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=343,
-  serialized_end=427,
+  serialized_start=397,
+  serialized_end=488,
 )
 
 
@@ -295,8 +333,8 @@ _DISPATCH = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=429,
-  serialized_end=514,
+  serialized_start=490,
+  serialized_end=583,
 )
 
 
@@ -333,23 +371,24 @@ _ERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=516,
-  serialized_end=577,
+  serialized_start=585,
+  serialized_end=646,
 )
 
 _RESPONSE.fields_by_name['items'].message_type = google_dot_protobuf_dot_any__pb2._ANY
 _ROUTE.fields_by_name['time'].message_type = _TIME
 _INFO.fields_by_name['routes'].message_type = _ROUTE
 _MONITOR.fields_by_name['info'].message_type = _INFO
-_MONITOR.fields_by_name['items'].message_type = _ITEM
+_MONITOR.fields_by_name['items'].message_type = _MONITORITEM
 _DISPATCH.fields_by_name['info'].message_type = _INFO
-_DISPATCH.fields_by_name['items'].message_type = _ITEM
+_DISPATCH.fields_by_name['items'].message_type = _DISPATCHITEM
 _ERROR.fields_by_name['info'].message_type = _INFO
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
 DESCRIPTOR.message_types_by_name['Time'] = _TIME
 DESCRIPTOR.message_types_by_name['Route'] = _ROUTE
 DESCRIPTOR.message_types_by_name['Info'] = _INFO
-DESCRIPTOR.message_types_by_name['Item'] = _ITEM
+DESCRIPTOR.message_types_by_name['MonitorItem'] = _MONITORITEM
+DESCRIPTOR.message_types_by_name['DispatchItem'] = _DISPATCHITEM
 DESCRIPTOR.message_types_by_name['Monitor'] = _MONITOR
 DESCRIPTOR.message_types_by_name['Dispatch'] = _DISPATCH
 DESCRIPTOR.message_types_by_name['Error'] = _ERROR
@@ -383,12 +422,19 @@ Info = _reflection.GeneratedProtocolMessageType('Info', (_message.Message,), dic
   ))
 _sym_db.RegisterMessage(Info)
 
-Item = _reflection.GeneratedProtocolMessageType('Item', (_message.Message,), dict(
-  DESCRIPTOR = _ITEM,
+MonitorItem = _reflection.GeneratedProtocolMessageType('MonitorItem', (_message.Message,), dict(
+  DESCRIPTOR = _MONITORITEM,
   __module__ = 'Response_pb2'
-  # @@protoc_insertion_point(class_scope:protoc.Response.Item)
+  # @@protoc_insertion_point(class_scope:protoc.Response.MonitorItem)
   ))
-_sym_db.RegisterMessage(Item)
+_sym_db.RegisterMessage(MonitorItem)
+
+DispatchItem = _reflection.GeneratedProtocolMessageType('DispatchItem', (_message.Message,), dict(
+  DESCRIPTOR = _DISPATCHITEM,
+  __module__ = 'Response_pb2'
+  # @@protoc_insertion_point(class_scope:protoc.Response.DispatchItem)
+  ))
+_sym_db.RegisterMessage(DispatchItem)
 
 Monitor = _reflection.GeneratedProtocolMessageType('Monitor', (_message.Message,), dict(
   DESCRIPTOR = _MONITOR,

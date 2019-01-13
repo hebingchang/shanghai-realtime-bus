@@ -29,4 +29,10 @@ if len(response.info.routes) > 1:
     print()
     print('%s站:' % station_name)
     for index, bus in enumerate(response.items):
-        print('%s. %s: 距离%s站, %s米, 还有%s分钟' % (index + 1, bus.vehicle, bus.stops, bus.distance, round(bus.time / 60)))
+        if hasattr(bus, 'stops'):
+            print('%s. %s: 距离%s站, %s米, 还有%s分钟' % (index + 1, bus.vehicle, bus.stops, bus.distance, round(bus.time / 60)))
+        elif hasattr(bus, 'time'):
+            print(
+                '%s. %s: %s发车' % (index + 1, bus.vehicle, bus.time))
+        else:
+            print('暂未发车')
