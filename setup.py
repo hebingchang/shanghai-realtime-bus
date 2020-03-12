@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'shbus',
-    version = '1.1.1',
+    version = '1.2.0',
     keywords = ('pip', 'shanghai', 'realtime', 'bus'),
     description = 'Python implementation of Shanghai Bus App.',
     long_description = '「上海公交」APP 的 Python 实现。基本实现了 APP 中所有功能，如查询线路、实时公交等。',
