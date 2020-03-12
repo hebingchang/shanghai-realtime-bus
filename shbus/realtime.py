@@ -4,6 +4,7 @@ from Crypto.Cipher import AES
 from google.protobuf.any_pb2 import Any
 import shbus.utils, shbus.consts
 
+
 class client:
     def __init__(self):
         r = requests.get('http://lbs.jt.sh.cn:8082/app/rls/names')
@@ -14,12 +15,15 @@ class client:
     def getAllLines(self):
         return self.lines
 
-    def __sendRequest(self, obj):
-        request_any = Any()
-        request_any.Pack(obj)
+    def __sendRequest(self, objs):
+        items = []
+        for obj in objs:
+            request_any = Any()
+            request_any.Pack(obj)
+            items.append(request_any)
 
         request = Request_pb2.Request()
-        request.items.extend([request_any])
+        request.items.extend(items)
         data = request.SerializeToString()
 
         length = 16 - (len(data) % 16)
@@ -41,7 +45,7 @@ class client:
         target.line = line
         target.sequence = sequence
 
-        data = self.__sendRequest(target)
+        data = self.__sendRequest([target])
 
         response = Response_pb2.Response()
         response.ParseFromString(data)
@@ -63,3 +67,41 @@ class client:
         else:
             print(type)
             return None
+
+    def batch(self, lines):
+        # mostly same as getRealtimeBus
+        targets = list()
+        for line in lines:
+            target = Request_pb2.Sequence()
+            target.direction = line['direction']
+            target.info = line['info']
+            target.line = line['line']
+            target.sequence = line['sequence']
+            targets.append(target)
+
+        data = self.__sendRequest(targets)
+
+        response = Response_pb2.Response()
+        response.ParseFromString(data)
+
+        results = list()
+        for item in response.items:
+            type, value = item.type_url, item.value
+
+            if type == '/protoc.Response.Dispatch':
+                dispatch = Response_pb2.Dispatch()
+                dispatch.ParseFromString(value)
+                results.append(dispatch)
+            elif type == '/protoc.Response.Monitor':
+                monitor = Response_pb2.Monitor()
+                monitor.ParseFromString(value)
+                results.append(monitor)
+            elif type == '/protoc.Response.Error':
+                error = Response_pb2.Error()
+                error.ParseFromString(value)
+                print(error.message)
+                results.append(error)
+            else:
+                print(type)
+
+        return results
