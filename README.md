@@ -10,7 +10,7 @@
 
 ## Usage
 
-### 线路查询
+### ~~线路查询~~ (已废弃)
 
 ```
 >>> import shbus.lineinfo
@@ -24,22 +24,21 @@ Bus
 ### 实时公交
 
 ```
->>> import shbus.realtime
->>> client = shbus.realtime.client()
->>> response = client.getRealtimeBus('虹桥枢纽4路', 30).items[0]
+>>> from shbus import realtime, LineSequence
+>>> response = realtime.get_realtime_bus(LineSequence(line='虹桥枢纽4路', sequence=30).items[0]
 >>> print('%s: 还剩%s站, 距离%s米, 还剩%s秒' % (response.vehicle, response.stops, response.distance, response.time))
 沪D-D6957: 还剩2站, 距离1354米, 还剩153秒
 ```
 
-具体参见 example 目录下的测试脚本。
+具体参见 example 目录下的示例代码。
 
 ## Principle
 
 ### 数据结构
 
-「上海公交」APP 有两种数据结构，分别用于普通的线路查询以及实时公交查询。
+「上海公交」APP 有两种数据结构，分别用于~~普通的线路查询~~ (已废弃)以及实时公交查询。
 
-1. 线路查询所返回的数据结构:
+1. ~~线路查询所返回的数据结构~~ (已废弃):
 
     貌似是项目组自己实现的二进制格式，需要逐比特位分析。
     
@@ -52,7 +51,7 @@ Bus
     
     是经过 AES CBC 加密的 Protobuf 结构化消息。解析起来有两个难点：如何找到 AES 的加密秘钥和初始向量；以及如何构造 Protobuf 消息的结构。这里不多赘述。
 
-### 线路查询
+### ~~线路查询~~ (已废弃)
 
 「上海公交」的线路查询功能共有3个接口：
 
