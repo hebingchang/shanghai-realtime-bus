@@ -25,7 +25,7 @@ Bus
 
 ```
 >>> from shbus import realtime, LineSequence
->>> response = realtime.get_realtime_bus(LineSequence(line='虹桥枢纽4路', sequence=30).items[0]
+>>> response = realtime.get_realtime_bus([LineSequence(line='虹桥枢纽4路', sequence=30)])[0].items[0]
 >>> print('%s: 还剩%s站, 距离%s米, 还剩%s秒' % (response.vehicle, response.stops, response.distance, response.time))
 沪D-D6957: 还剩2站, 距离1354米, 还剩153秒
 ```
