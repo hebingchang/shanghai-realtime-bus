@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 
 from shbus import __ALL_LINES__, utils
 from shbus.models import LineSequence
@@ -10,7 +10,7 @@ def get_all_lines() -> List[str]:
 
 
 def get_realtime_bus(lines: List[LineSequence]) -> List[
-    Response_pb2.Dispatch | Response_pb2.Monitor | Response_pb2.Error]:
+    Union[Response_pb2.Dispatch, Response_pb2.Monitor, Response_pb2.Error]]:
     targets = list()
     for line in lines:
         target = Request_pb2.Sequence()
